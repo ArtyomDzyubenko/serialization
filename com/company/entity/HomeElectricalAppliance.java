@@ -3,10 +3,12 @@ package com.company.entity;
 import java.io.Serializable;
 
 public abstract class HomeElectricalAppliance implements Serializable {
-    private final static long UID = 1L;
+    private static long counter;
+    private final long serialVersionUID = counter++;
 
-    private int power;
+    transient private int power;
     private ApplianceState state;
+
 
     public HomeElectricalAppliance(){
 
@@ -26,7 +28,6 @@ public abstract class HomeElectricalAppliance implements Serializable {
         this.state = state;
     }
 
-
     public int getPower() {
         return power;
     }
@@ -35,8 +36,9 @@ public abstract class HomeElectricalAppliance implements Serializable {
         return state;
     }
 
+
     @Override
     public String toString() {
-        return "power: " + power + "\nstate: " + state + "\n";
+        return  getClass().getName() +  "\nUID: " + serialVersionUID + "\npower: " + power + "\nstate: " + state;
     }
 }

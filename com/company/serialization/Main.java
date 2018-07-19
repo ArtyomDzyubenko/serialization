@@ -3,6 +3,7 @@ package com.company.serialization;
 import com.company.entity.*;
 
 import java.io.InvalidObjectException;
+import java.io.ObjectInputStream;
 import java.util.Iterator;
 
 public class Main {
@@ -20,21 +21,18 @@ public class Main {
         homeElectricalAppliances.add(tv);
         homeElectricalAppliances.add(stove);
 
-        Serializator.serialize(homeElectricalAppliances, "D:\\object.txt");
-        HomeElectricalAppliances deserializable = Serializator.deserializeCollection("D:\\object.txt");
+        Serializer serializer = new Serializer<HomeElectricalAppliances>();
 
-        System.out.println("---AFTER SERIALIZATION---");
+        serializer.serialize(homeElectricalAppliances, "D:\\object.txt");
+        HomeElectricalAppliances deserialized = (HomeElectricalAppliances)serializer.deserialize("D:\\object.txt");
 
-        /*Iterator iterator = deserializable.getHomeElectricalAppliances().iterator();
+        System.out.println("---AFTER DESERIALIZATION---");
 
-        while(iterator.hasNext()) {
-            System.out.println(iterator.next().toString());
-        }*/
+        Iterator iterator = deserialized.iterator();
 
-        Iterator iterator = deserializable.getIterator();
-
-        while(iterator.hasNext()) {
+        while(iterator.hasNext()){
             System.out.println(iterator.next().toString());
         }
+
     }
 }

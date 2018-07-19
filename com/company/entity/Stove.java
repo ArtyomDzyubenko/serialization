@@ -3,8 +3,8 @@ package com.company.entity;
 import java.io.Serializable;
 
 public class Stove extends HomeElectricalAppliance implements Serializable {
-    transient private int burnerNumber;
-    transient private boolean ovenIncluded;
+    private int burnerNumber;
+    private boolean ovenIncluded;
 
 
     public Stove(){

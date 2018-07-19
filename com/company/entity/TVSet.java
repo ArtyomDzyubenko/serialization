@@ -3,8 +3,8 @@ package com.company.entity;
 import java.io.Serializable;
 
 public class TVSet extends HomeElectricalAppliance implements Serializable {
-    transient private double diagonal;
-    transient private String screenType;
+    private double diagonal;
+    private String screenType;
 
 
     public TVSet(){

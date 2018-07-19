@@ -6,7 +6,7 @@ public abstract class HomeElectricalAppliance implements Serializable {
     private static long counter;
     private final long serialVersionUID = counter++;
 
-    transient private int power;
+    private int power;
     private ApplianceState state;
 
 

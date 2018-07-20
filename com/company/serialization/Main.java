@@ -7,7 +7,6 @@ import java.io.ObjectInputStream;
 import java.util.Iterator;
 
 public class Main {
-
     public static void main(String[] args) throws InvalidObjectException {
         HomeElectricalAppliance tv = new TVSet(200, ApplianceState.OFF, 110, "LED");
         HomeElectricalAppliance stove = new Stove(2500, ApplianceState.ON, 4, true);
@@ -33,6 +32,5 @@ public class Main {
         while(iterator.hasNext()){
             System.out.println(iterator.next().toString());
         }
-
     }
 }

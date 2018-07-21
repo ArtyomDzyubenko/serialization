@@ -43,15 +43,6 @@ public class Serializer<T> {
 
         createFile(file);
 
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            }
-            catch (IOException e) {
-                System.out.println("Cannot create file.");
-            }
-        }
-
         try(FileInputStream fileInputStream = new FileInputStream(fileName)){
             objectInputStream = new ObjectInputStream(fileInputStream);
             T object = (T)objectInputStream.readObject();

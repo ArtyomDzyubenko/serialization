@@ -2,12 +2,13 @@ package com.company.serialization;
 
 import com.company.entity.*;
 
+import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
 import java.util.Iterator;
 
 public class Main {
-    public static void main(String[] args) throws InvalidObjectException {
+    public static void main(String[] args) throws IOException {
         String fileName = "D:\\object.txt";
 
         HomeElectricalAppliance tv = new TVSet(200, ApplianceState.OFF, 110, "LED");

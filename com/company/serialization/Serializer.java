@@ -6,18 +6,19 @@ import com.company.entity.HomeElectricalAppliances;
 import java.io.*;
 
 public class Serializer<T> {
+    private void createFile(File file){
+        if (!file.exists()) try {
+            file.createNewFile();
+        } catch (IOException e) {
+            System.out.println("Cannot create file.");
+        }
+    }
+
     public boolean serialize(T obj, String fileName) throws IOException {
         boolean success = false;
         File file = new File(fileName);
 
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            }
-            catch (IOException e) {
-                System.out.println("Cannot create file.");
-            }
-        }
+        createFile(file);
 
         ObjectOutputStream objectOutputStream = null;
 
@@ -39,6 +40,8 @@ public class Serializer<T> {
     public T deserialize(String fileName) throws InvalidObjectException {
         File file = new File(fileName);
         ObjectInputStream objectInputStream = null;
+
+        createFile(file);
 
         if (!file.exists()) {
             try {

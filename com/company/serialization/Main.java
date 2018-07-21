@@ -9,7 +9,7 @@ import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String fileName = "D:\\object.txt";
+        String fileName = "D:\\object.dat";
 
         HomeElectricalAppliance tv = new TVSet(200, ApplianceState.OFF, 110, "LED");
         HomeElectricalAppliance stove = new Stove(2500, ApplianceState.ON, 4, true);
